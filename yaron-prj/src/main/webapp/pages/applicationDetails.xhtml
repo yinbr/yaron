@@ -1,0 +1,95 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="/pages/common/layout.xhtml">
+
+    <!--  THE MAIN AREA -->
+    <ui:define name="mainArea">
+
+        <h:outputText value="#{applicationDetailsAction.selectedApplication.name}"/>
+
+        <h:panelGroup layout="block" styleClass="breadcrumbs">Breadcrumbs</h:panelGroup>
+
+        <h:panelGroup layout="block" styleClass="tabs-wrapper" style="border: 1px dotted gray;">
+            <ul class="tabs">
+                <li><a4j:commandLink>Connectivity</a4j:commandLink></li>
+                <li><a4j:commandLink>Tickets</a4j:commandLink></li>
+            </ul>
+            <h:panelGroup id="tabsContentRR" styleClass="tabs-content">
+
+                <h:panelGroup layout="block" style="float:left; width: 84%;">
+
+                    <h:form id="appActionsFrm">
+                        <h:panelGroup layout="block" styleClass="actions-panel">
+
+                            <a4j:commandLink>Settings</a4j:commandLink>
+                            <a4j:commandLink>Delete</a4j:commandLink>
+                            <a4j:commandLink>Revert</a4j:commandLink>
+                            <a4j:commandLink>Save</a4j:commandLink>
+                            <a4j:commandLink>Create Ticket</a4j:commandLink>
+                            Sort by:
+                            <rich:select value="#{applicationDetailsAction.selectedSortBy}">
+                                <f:selectItems value="#{applicationDetailsAction.applicationSortByOptions}"
+                                               var="appSortBy" itemLabel="#{appSortBy.label}"/>
+                            </rich:select>
+
+                        </h:panelGroup>
+                    </h:form>
+
+                    <h:form id="appTableFrm">
+                        <rich:extendedDataTable value="#{applicationDetailsAction.selectedApplication.connections}"
+                                                var="conn">
+                            <rich:column>
+                                <f:facet name="header">Name</f:facet>
+                                <h:outputText value="#{conn.name}"/>
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">Source</f:facet>
+                                <rich:list value="#{conn.sources}" var="source">
+                                    <h:outputText value="#{source.name}"/>
+                                </rich:list>
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">Service</f:facet>
+                                <rich:list value="#{conn.services}" var="service">
+                                    <h:outputText value="#{service.name}"/>
+                                </rich:list>
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">Destination</f:facet>
+                                <rich:list value="#{conn.destinations}" var="destination">
+                                    <h:outputText value="#{destination.name}"/>
+                                </rich:list>
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">Comments</f:facet>
+                                <h:outputText value="#{conn.comments}"/>
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">Status</f:facet>
+                                <a4j:commandLink
+                                        action="#{applicationDetailsAction.changeConnectionStatus(conn, 'CONNECTED')}"
+                                        render="statusRR">ON</a4j:commandLink>
+                                <a4j:commandLink
+                                        action="#{applicationDetailsAction.changeConnectionStatus(conn, 'NOT_CONNECTED')}"
+                                        render="statusRR">OFF</a4j:commandLink>
+                                <br/>
+                                <h:outputText id="statusRR" value="#{conn.status}"/>
+
+                            </rich:column>
+
+                        </rich:extendedDataTable>
+                    </h:form>
+                </h:panelGroup>
+                <h:panelGroup layout="block" style="float:right; width: 16%;">
+                    <ui:include src="resources.xhtml"/>
+                </h:panelGroup>
+            </h:panelGroup>
+        </h:panelGroup>
+
+
+    </ui:define>
+</ui:composition>

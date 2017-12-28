@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich" >
+
+	<h:head>
+        <ui:param name="resources" value="#{facesContext.externalContext.requestContextPath}" />
+        <meta charset="utf-8" />
+	    <title><ui:insert name="title">YaronApp</ui:insert></title>
+	     <!-- Favicon -->
+	    <link rel="shortcut icon" href="#{resources}/images/favicon.ico"/>
+	    <!-- CSS -->
+        <link rel="stylesheet" href="#{resources}/css/richFaces.css"/>
+	    <link rel="stylesheet" href="#{resources}/css/common.css"/>
+	    <link rel="stylesheet" href="#{resources}/css/secureapp.css"/>
+	    <!-- Java Script -->
+	    <script src="#{resources}/js/jquery-latest.js"></script>
+        <script src="#{resources}/js/common.js"></script>
+	    <script src="#{resources}/js/secureapp.js"></script>
+	    <script>var $j = jQuery.noConflict();</script>
+	    <ui:insert name="scriptsAndStyles" />
+	</h:head>
+
+	<h:body>
+		<f:view>		
+            <h:form id="initFrm" >
+                <ui:insert name="initAction"/>
+            </h:form>
+            <h:form id="mainMenuFrm">
+                <ui:insert name="header">
+                    <ui:include src="/pages/common/header.xhtml"/>
+                </ui:insert>
+            </h:form>
+            <ui:insert name="mainArea">
+                No Main Area defined
+            </ui:insert>
+		</f:view>
+	</h:body>
+</html>
+

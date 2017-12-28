@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+
+    <div class="header">
+
+        <h:commandLink styleClass="logo"><img src="#{facesContext.externalContext.requestContextPath}/images/common/tufin.png" alt="tufin" /></h:commandLink>
+
+        <ul class="main-nav">
+            <li>
+                <h2><h:commandLink immediate="true" class="current" action="showApplicationsDetailsPage">Secure<strong>App</strong></h:commandLink></h2>
+            </li>
+            <li>
+                <h:commandLink immediate="true" value="Applications List" action="showApplicationListPage"/>
+            </li>
+            <li>
+                <h:commandLink immediate="true" value="Application Details" action="showApplicationsDetailsPage"/>
+            </li>
+
+            <li>
+                <h2><h:commandLink immediate="true" >Secure<strong>Change</strong></h:commandLink></h2>
+            </li>
+        </ul>
+
+        <ul class="user-nav">
+            <li class="settings">
+                <h:outputText styleClass="inr" value="Settings"/>
+            </li>
+            <li><h:outputText value="user name"/></li>
+            <li><a4j:commandLink value="Logout"/></li>
+        </ul>
+
+    </div>
+</ui:composition>

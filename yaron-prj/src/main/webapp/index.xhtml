@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      >
+
+<h:head>
+    <title>JSF2 + Spring 3.0 Hello World</title>
+    <script type="text/javascript"
+            src="#{facesContext.externalContext.requestContextPath}/fusioncharts/FusionCharts.js">
+    </script>
+</h:head>
+<h:body>
+    <h:form>
+
+        <rich:panel header="Gad">
+                Bla Bla
+            </rich:panel>
+
+        <h:dataTable value="#{ userAction.users}" var="user">
+
+            <h:column>
+                <h:outputText value="#{user.username}"/>
+            </h:column>
+
+        </h:dataTable>
+    </h:form>
+
+
+    <div id="chartContainer">FusionCharts will load here!</div>
+    <script type="text/javascript">
+
+        var myChart = new FusionCharts("#{facesContext.externalContext.requestContextPath}/fusioncharts/Column3D.swf",
+                "myChartId", "400", "300", "0", "1");
+        myChart.setDataXML('#{chartAction.calculateData()}');
+        myChart.render("chartContainer");
+
+    </script>
+
+
+</h:body>
+</html>

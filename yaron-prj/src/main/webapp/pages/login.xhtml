@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	
+	template="/pages/common/layout2.xhtml">
+
+	<!--  THE MAIN AREA -->
+	<ui:define name="mainArea">
+		<h:form id="mainAreaFrm">
+			<div align="center" >
+			TESTTTTTTTTTTTTTTTTT
+			
+			
+			
+			<p:panel id="basic" header="LOGIN"   style="margin-bottom:20px;width:450px;">
+		        <h:panelGrid columns="2" cellpadding="10">
+		            <h:outputLabel value="Username:"></h:outputLabel>
+		            <p:inputText value="#{loginAction.name}"></p:inputText>
+		            
+		            <h:outputLabel value="Password:"></h:outputLabel>
+		            <p:inputText value="#{loginAction.password}"></p:inputText>
+		            
+		            <h:column></h:column>
+		            <p:commandButton value="Login" action="#{loginAction.login}"> </p:commandButton>
+		        </h:panelGrid>
+		    </p:panel>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

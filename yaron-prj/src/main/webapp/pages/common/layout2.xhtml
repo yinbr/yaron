@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich" >
+
+	<h:head>
+        <ui:param name="resources" value="#{facesContext.externalContext.requestContextPath}" />
+        <meta charset="utf-8" />
+	    <title>YaronApp</title>
+	     <!-- Favicon -->
+	    <link rel="shortcut icon" href="#{resources}/images/common/favicon.ico"/>
+	</h:head>
+
+	<h:body>
+		<f:view>		
+            <ui:insert name="mainArea">
+                No Main Area defined
+            </ui:insert>
+		</f:view>
+	</h:body>
+</html>
+
