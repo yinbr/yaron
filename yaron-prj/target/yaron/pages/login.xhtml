@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/pages/common/layout.xhtml">
+
+	<!--  THE MAIN AREA -->
+	<ui:define name="mainArea">
+		<h:form id="mainAreaFrm">
+			<div align="center">
+			<rich:panel header="Login " style="width:280px;">
+				<h:panelGrid columns="2">
+					<h:outputText value="Name : "/> 
+					<h:inputText id="nameIn" value="#{loginAction.name}" required="true"/>
+					<h:column/>
+					<rich:message for="nameIn" />
+					
+					
+					<h:outputText value="Password :"/>
+					<h:inputText id="passwordIn" value="#{loginAction.password}" required="true"/>
+					<h:column/>
+					<rich:message for="passwordIn"  />
+					
+					
+					<h:column/>
+					<a4j:commandButton value="login" action="#{loginAction.login}" style="float:left;"/>
+									
+				</h:panelGrid>
+		   
+			</rich:panel>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
