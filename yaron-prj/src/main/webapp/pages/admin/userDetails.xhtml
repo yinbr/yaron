@@ -12,22 +12,24 @@
 	<ui:define name="mainArea">
 		<h:form id="mainAreaFrm">
 			<div align="center" >
-			TESTTTTTTTTTTTTTTTTT
 			
-			
-			
-			<p:panel id="basic" header="LOGIN"   style="margin-bottom:20px;width:450px;">
-		        <h:panelGrid columns="2" cellpadding="10">
-		            <h:outputLabel value="Username:"></h:outputLabel>
+			<h:outputLabel value="Username:"></h:outputLabel>
 		            <p:inputText value="#{loginAction.name}"></p:inputText>
-		            
-		            <h:outputLabel value="Password:"></h:outputLabel>
-		            <p:inputText value="#{loginAction.password}"></p:inputText>
-		            
-		            <h:column></h:column>
-		            <p:commandButton value="Login" action="#{loginAction.login}"> </p:commandButton>
-		        </h:panelGrid>
-		    </p:panel>
+				<p:dataTable var="user" value="#{loginAction.users}">
+  				  <p:column headerText="User name">
+			        <h:outputText value="#{user.userName}" />
+					   	 </p:column>
+					 
+					    <p:column headerText="First name">
+					        <h:outputText value="#{user.firstName}" />
+					    </p:column>
+					 
+					    <p:column headerText="Last name">
+					        <h:outputText value="#{user.lastName}" />
+					    </p:column>
+					 
+					   
+				</p:dataTable>
 			</div>
 		</h:form>
 	</ui:define>
