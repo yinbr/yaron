@@ -10,51 +10,63 @@
 	    
 	<navigation-rule>
 		<navigation-case>
-			<from-outcome>showTestPage</from-outcome>
-			<to-view-id>/pages/test.xhtml</to-view-id>
-			<redirect/>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<navigation-case>
 			<from-outcome>showLoginPage</from-outcome>
 			<to-view-id>/pages/login.xhtml</to-view-id>
 			<redirect/>
 		</navigation-case>
 	</navigation-rule>
 	
+
+
+<!-- ADMINISTRATION SECTION  -->	
+	
+
 	<navigation-rule>
 		<navigation-case>
-			<from-outcome>showUserPage</from-outcome>
-			<to-view-id>/pages/userHome.xhtml</to-view-id>
+			<from-outcome>showAdminHomePage</from-outcome>
+			<to-view-id>/pages/administration/adminHome.xhtml</to-view-id>
 			<redirect/>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
 		<navigation-case>
-			<from-outcome>showAdminPage</from-outcome>
-			<to-view-id>/pages/adminHome.xhtml</to-view-id>
+			<from-outcome>showKinderGardenListPage</from-outcome>
+			<to-view-id>/pages/administration/kinderGardenList.xhtml</to-view-id>
 			<redirect/>
 		</navigation-case>
 	</navigation-rule>
-
+	
+	
 	<navigation-rule>
 		<navigation-case>
-			<from-outcome>showApplicationListPage</from-outcome>
-			<to-view-id>/pages/applicationList.xhtml</to-view-id>
+			<from-outcome>showUserDetailsPage</from-outcome>
+			<to-view-id>/pages/administration/userDetails.xhtml</to-view-id>
 			<redirect/>
 		</navigation-case>
 	</navigation-rule>
-
+	
+	<!-- USERS SECTION  -->
+	
 	<navigation-rule>
 		<navigation-case>
-			<from-outcome>showApplicationsDetailsPage</from-outcome>
-			<to-view-id>/pages/applicationDetails.xhtml</to-view-id>
+			<from-outcome>showUserHomePage</from-outcome>
+			<to-view-id>/pages/users/userHome.xhtml</to-view-id>
 			<redirect/>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>showHourReportPage</from-outcome>
+			<to-view-id>/pages/users/hourReport.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+
+	
 
     <lifecycle>
         <phase-listener>com.yaron.utils.LifeCycleListener</phase-listener>
@@ -70,6 +82,9 @@
         <validator-id>myValidator</validator-id>
         <validator-class>com.yaron.utils.MyValidator</validator-class>
     </validator>
+    
+    
+    
     <!--<managed-bean>-->
         <!--<managed-bean-name>myBean</managed-bean-name>-->
         <!--<managed-bean-class>com.yaron.actions.MyBean</managed-bean-class>-->

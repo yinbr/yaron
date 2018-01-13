@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15142974284990" configfile="/yaron-prj/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="562" id="pf15143844532521" outlinks="pf15143844532522 pf15143844532523 pf15143844532524" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/test.xhtml" x="338" y="178" id="pf15143844532525" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15143844532522" path="/pages/test.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/applicationList.xhtml" x="338" y="562" id="pf15143844532526" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf15143844532523" path="/pages/applicationList.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/applicationDetails.xhtml" x="338" y="946" id="pf15143844532527" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf15143844532524" path="/pages/applicationDetails.xhtml"/>
-  <links id="pf15143844532522" target="pf15143844532525" source="pf15143844532521" outcome="showTestPage" redirect="true"/>
-  <links id="pf15143844532523" target="pf15143844532526" source="pf15143844532521" outcome="showApplicationListPage" redirect="true"/>
-  <links id="pf15143844532524" target="pf15143844532527" source="pf15143844532521" outcome="showApplicationsDetailsPage" redirect="true"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1138" id="pf15143844532521" outlinks="pf15158639680908 pf15158639680919 pf151586396809110 pf151586396809111 pf151586396809112 pf151586396809113" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/login.xhtml" id="pf151586396809114" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15158639680908" path="/pages/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/administration/adminHome.xhtml" id="pf151586396809115" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf15158639680919" path="/pages/administration/adminHome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/users/userHome.xhtml" id="pf151586396809116" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf151586396809110" path="/pages/users/userHome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/users/hourReport.xhtml" id="pf151586396809117" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf151586396809111" path="/pages/users/hourReport.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/administration/kinderGardenList.xhtml" id="pf151586396809118" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf151586396809112" path="/pages/administration/kinderGardenList.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/administration/userDetails.xhtml" id="pf151586396809119" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf151586396809113" path="/pages/administration/userDetails.xhtml"/>
+  <links id="pf15158639680908" target="pf151586396809114" source="pf15143844532521" outcome="showLoginPage" redirect="true"/>
+  <links id="pf15158639680919" target="pf151586396809115" source="pf15143844532521" outcome="showAdminHomePage" redirect="true"/>
+  <links id="pf151586396809110" target="pf151586396809116" source="pf15143844532521" outcome="showUserHomePage" redirect="true"/>
+  <links id="pf151586396809111" target="pf151586396809117" source="pf15143844532521" outcome="showHourReportPage" redirect="true"/>
+  <links id="pf151586396809112" target="pf151586396809118" source="pf15143844532521" outcome="showKinderGardenListPage" redirect="true"/>
+  <links id="pf151586396809113" target="pf151586396809119" source="pf15143844532521" outcome="showUserDetailsPage" redirect="true"/>
 </pageflow:Pageflow>

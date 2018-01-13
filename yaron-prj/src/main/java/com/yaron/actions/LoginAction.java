@@ -28,7 +28,7 @@ public class LoginAction extends BaseBean {
     SessionAction sessionAction;
     
     private UserBean loggedInUser;
-    private String name = "test";
+    private String name ;
     private String password;
     
     
@@ -40,9 +40,9 @@ public class LoginAction extends BaseBean {
     			if(user.getPassword().equals(password)) {
     				setLoggedInUser(user);
     				if(loggedInUser.getRole().equals(Role.ADMIN)) {
-    					return ShowPage.SHOW_ADMIN_PAGE;
+    					return ShowPage.SHOW_ADMIN_HOME_PAGE;
     				}if(loggedInUser.getRole().equals(Role.USER)) {
-    					return ShowPage.SHOW_USER_PAGE;
+    					return ShowPage.SHOW_USER_HOME_PAGE;
     				}
     			}
     		}

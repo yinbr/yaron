@@ -8,8 +8,18 @@ import com.yaron.server.stereotype.ViewAction;
 @Scope("application")
 public class ShowPage {
 	public static String SHOW_LOGIN_PAGE ="showLoginPage";
-	public static String SHOW_USER_PAGE ="showUserPage";
-	public static String SHOW_ADMIN_PAGE ="showAdminPage";
+	
+	
+	// ADMIN SECTION
+	public static String SHOW_ADMIN_HOME_PAGE ="showAdminHomePage";
+	public static String SHOW_KINDER_GARDEN_LIST_PAGE ="showKinderGardenListPage";
+	public static String SHOW_USER_DETAILS_PAGE ="showUserDetailsPage";
+	
+	//USERS SECTION
+	
+	public static String SHOW_USER_HOME_PAGE ="showUserHomePage";
+	public static String SHOW_HOUR_REPORT_PAGE ="showHourReportPage";
+	
 	
 
 			
