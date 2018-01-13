@@ -12,7 +12,7 @@
 	<ui:define name="mainArea">
 		<h:form id="mainAreaFrm">
 			<div align="center" >
-			TESTTTTTTTTTTTTTTTTT
+			
 			
 			
 			
@@ -22,7 +22,7 @@
 		            <p:inputText value="#{loginAction.name}"></p:inputText>
 		            
 		            <h:outputLabel value="Password:"></h:outputLabel>
-		            <p:inputText value="#{loginAction.password}"></p:inputText>
+		            <p:password value="#{loginAction.password}" />
 		            
 		            <h:column></h:column>
 		            <p:commandButton value="Login" action="#{loginAction.login}"> </p:commandButton>
