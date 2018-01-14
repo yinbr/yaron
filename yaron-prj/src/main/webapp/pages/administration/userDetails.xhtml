@@ -4,7 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
 	
 	template="/pages/common/layout2.xhtml">
 
@@ -12,8 +13,50 @@
 	<ui:define name="mainArea">
 		<h:form id="mainAreaFrm">
 			<div align="center" >
-			   user details
+			   <rich:dataTable var="user" value="#{userDetailsAction.users}">
+			   	<rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="User name " />
+                    </f:facet>
+	                    <h:outputText value="#{user.userName}" />
+	                </rich:column>
+			   	
+			
+			   	
+			   	<rich:column>
+			   		<f:facet name="header">
+                        <h:outputText value="Action " />
+                    </f:facet>
+			   		<a4j:commandLink id="link" actionListener="#{userDetailsAction.setSelectedUser(user)}" 
+			   			oncomplete="#{rich:component('userDetails')}.show(); return false;" render="userDetails">
+				        <h:outputText value="edit ajax" />
+				        
+				    </a4j:commandLink>
+			   		
+			   		
+
+			   	</rich:column>
+			   	
+			   </rich:dataTable>
 			</div>
+			
+			<rich:popupPanel id="userDetails" modal="true" width="200" height="100" autosized="true" resizeable="false">
+		        <f:facet name="header"> 
+		            <h:outputText value="User details" />
+		        </f:facet>
+		        <f:facet name="controls">
+		            <h:outputLink value="#" onclick="#{rich:component('userDetails')}.hide(); return false;" style="color: inherit">
+		                X
+		            </h:outputLink>
+		        </f:facet>
+		        
+	 			<h:outputText value="#{userDetailsAction.selectedUser.userName}"></h:outputText>
+		        
+		    </rich:popupPanel>
+			
+				
+			
+			
 		</h:form>
 	</ui:define>
 </ui:composition>
