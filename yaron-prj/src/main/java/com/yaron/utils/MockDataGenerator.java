@@ -49,6 +49,24 @@ public class MockDataGenerator {
         test.setRole(Role.USER);
         userBeans.add(test);
         
+        
+        UserBean itay = new UserBean();
+        itay.setFirstName("itay");
+        itay.setLastName(" brosh" );
+        itay.setPassword("1234");
+        itay.setUserName("itay");
+        itay.setRole(Role.ADMIN);
+        userBeans.add(itay);
+        
+        
+        UserBean noam = new UserBean();
+        noam.setFirstName("noam");
+        noam.setLastName(" brosh" );
+        noam.setPassword("1234");
+        noam.setUserName("noam");
+        noam.setRole(Role.USER);
+        userBeans.add(noam);
+        
         return userBeans;
     }
 

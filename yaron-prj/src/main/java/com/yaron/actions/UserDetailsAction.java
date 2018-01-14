@@ -29,7 +29,18 @@ public class UserDetailsAction extends BaseBean {
     
     
     
+    public void createNewUser() {
+    		UserBean newUser=new UserBean();
+    		setSelectedUser(newUser);
+    		
+    	
+    }
     
+    public void saveUser() {
+		
+		
+	
+    }
     
 
 	public List<UserBean> getUsers() {

@@ -6,41 +6,65 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich"
-	
+	xmlns:p="http://primefaces.org/ui"
 	template="/pages/common/layout2.xhtml">
 
 	<!--  THE MAIN AREA -->
 	<ui:define name="mainArea">
 		<h:form id="mainAreaFrm">
-			<div align="center" >
-			   <rich:dataTable var="user" value="#{userDetailsAction.users}">
-			   	<rich:column>
-                    <f:facet name="header">
-                        <h:outputText value="User name " />
-                    </f:facet>
-	                    <h:outputText value="#{user.userName}" />
-	                </rich:column>
-			   	
+			<rich:messages ajaxRendered="true"></rich:messages>
 			
-			   	
-			   	<rich:column>
-			   		<f:facet name="header">
-                        <h:outputText value="Action " />
-                    </f:facet>
-			   		<a4j:commandLink id="link" actionListener="#{userDetailsAction.setSelectedUser(user)}" 
-			   			oncomplete="#{rich:component('userDetails')}.show(); return false;" render="userDetails">
-				        <h:outputText value="edit ajax" />
-				        
-				    </a4j:commandLink>
-			   		
-			   		
-
-			   	</rich:column>
+			<div align="center" >
+			   <rich:dataTable id="usersTable" var="user" value="#{userDetailsAction.users}">
+				   	<rich:column>
+	                    <f:facet name="header">
+	                        <h:outputText value="User name " />
+	                    </f:facet>
+		                <h:outputText value="#{user.userName}" />
+		            </rich:column>
+				   	
+				   	<rich:column>
+	                    <f:facet name="header">
+	                        <h:outputText value="first name" />
+	                    </f:facet>
+		                <h:outputText value="#{user.firstName}" />
+		            </rich:column>
+				   	
+				   		<rich:column>
+	                    <f:facet name="header">
+	                        <h:outputText value="last name" />
+	                    </f:facet>
+		                <h:outputText value="#{user.lastName}" />
+		            </rich:column>
+				   	
+				   	<rich:column>
+	                    <f:facet name="header">
+	                        <h:outputText value="role" />
+	                    </f:facet>
+		                <h:outputText value="#{user.role}" />
+		            </rich:column>
+		            
+				   	<rich:column>
+				   		<f:facet name="header">
+	                        <h:outputText value="Action " />
+	                    </f:facet>
+				   		<a4j:commandLink id="link" actionListener="#{userDetailsAction.setSelectedUser(user)}" 
+				   			oncomplete="#{rich:component('userDetails')}.show(); return false;" render="userDetails">
+					        <h:outputText value="edit" />
+					    </a4j:commandLink>
+	
+					</rich:column>
 			   	
 			   </rich:dataTable>
 			</div>
 			
-			<rich:popupPanel id="userDetails" modal="true" width="200" height="100" autosized="true" resizeable="false">
+			<a4j:commandButton id="newUser" actionListener="#{userDetailsAction.createNewUser}">	
+				
+			
+			
+			</a4j:commandButton>
+			
+			<rich:popupPanel id="userDetails" modal="true" width="400" height="200" autosized="true" resizeable="false">
 		        <f:facet name="header"> 
 		            <h:outputText value="User details" />
 		        </f:facet>
@@ -49,8 +73,29 @@
 		                X
 		            </h:outputLink>
 		        </f:facet>
-		        
-	 			<h:outputText value="#{userDetailsAction.selectedUser.userName}"></h:outputText>
+		        	
+		        	<h:panelGrid columns="2">
+		        		
+		        		<h:column>
+			        		<h:inputText value="#{userDetailsAction.selectedUser.userName}"></h:inputText>
+		        		</h:column>
+		        		<h:column>
+			        		<h:outputLabel value="שם משתמש " />
+		        		</h:column>
+		        		
+		        		
+		        		<h:column></h:column>	
+		        		<h:column>
+		        			<a4j:commandButton id="saveUser" value="Save" actionListener="#{userDetailsAction.createNewUser}"
+		        			render="usersTable">	
+				
+			
+			
+							</a4j:commandButton>
+		        		</h:column>
+		        	
+		        	</h:panelGrid>
+   
 		        
 		    </rich:popupPanel>
 			
